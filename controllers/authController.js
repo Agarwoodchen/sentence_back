@@ -85,7 +85,7 @@ export const login = (req, res) => {
       const token = jwt.sign(
         { userId: user.id, role: user.role },
         JWT_SECRET,
-        { expiresIn: '7d' }
+        { expiresIn: 300 }
       );
 
       return res.status(200).json({

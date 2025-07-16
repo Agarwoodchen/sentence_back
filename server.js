@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
 import authRoutes from './routes/authRoutes.js';
+import translationPracticeRoutes from './routes/translationPracticeRoutes.js'
 import './config/db.js';
 import logger from './utils/logger.js';
 
@@ -24,7 +25,7 @@ app.use(
 );
 
 app.use('/api/auth', authRoutes);
-
+app.use('/api/translationPractice', translationPracticeRoutes)
 // 全局错误处理中间件，记录错误日志
 app.use((err, req, res, next) => {
   logger.error(`${req.method} ${req.url} - ${err.message}`);
